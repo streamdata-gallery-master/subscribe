@@ -17,7 +17,7 @@ paths:
   /search.json:
     get:
       summary: Search for Istio
-      description: Searching Reddit for Istio - test
+      description: Searching Reddit for Istio
       operationId: search
       parameters:
       - in: query
