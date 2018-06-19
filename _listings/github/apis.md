@@ -5,7 +5,7 @@ description: GitHub is a social network for programmers. Git is a distributed so
   management program created by Linus Torvalds, originally for the Linux Kernel Development.
   GitHub is a hosted Git repository. Github allows you to take part in collaboration
   by forking projects, sending and pulling requests, and monitoring development.
-image: http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/github-logo.png
+image: https://s3.amazonaws.com/kinlane-productions/github/github-circle-icon.png
 x-kinRank: "10"
 x-alexaRank: "70"
 tags:
@@ -37,7 +37,7 @@ specificationVersion: "0.14"
 apis:
 - name: Github
   description: GitHub is a social network for programmers
-  image: http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/github-logo.png
+  image: https://s3.amazonaws.com/kinlane-productions/github/github-circle-icon.png
   humanURL: ""
   baseURL: https://api.github.com//
   tags:
