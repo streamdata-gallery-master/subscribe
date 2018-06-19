@@ -1,5 +1,6 @@
 <center>
 <table width="50%" style="background-color:#FFF; padding: 25px; border: 1px solid #000;">
+  {% assign last_name = '' %}
   {% for item in listing_object %}
     {% if item.swagger %}
       {% if item.swagger == "2.0" %}
@@ -41,6 +42,12 @@
            {% endfor %}
          {% endfor %}
 
+         {% if api_name != last_name %}
+         <tr>
+          <td colspan="4"><hr /></td>
+         </tr>
+         {% endif %}
+
          <tr>
             <td width="10%">
               <img src="{{ api_image }}" class="taggedLinkCard__image" alt="">
@@ -53,6 +60,8 @@
             </td>
             <td width="10%"><a href="http://streamdata.subscribe.engine.laneworks.net/generate/stream/?openapi_url=http://{{ site.url }}/{{ tag_slug }}/{{ api_slug }}/{{ api_path_slug }}/" target="_blank">Subscribe</a></td>
          </tr>
+
+         {% assign last_name = api_name %}
 
       {% endif %}
     {% endif %}
