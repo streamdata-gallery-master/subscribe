@@ -1,7 +1,7 @@
 ---
 swagger: "2.0"
 info:
-  title: Reddit Search for Istio
+  title: Reddit - Istio
   description: Searching for Istio
   version: 1.0.0
 x-collection-name: Reddit

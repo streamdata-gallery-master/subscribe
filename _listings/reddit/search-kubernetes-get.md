@@ -1,7 +1,7 @@
 ---
 swagger: "2.0"
 info:
-  title: Reddit Search for Kubernetes
+  title: Reddit - Kubernetes
   description: Searching for Kubernetes
   version: 1.0.0
 x-collection-name: Reddit  

@@ -1,7 +1,7 @@
 ---
 swagger: "2.0"
 info:
-  title: Reddit Search for Tensorflow
+  title: Reddit - Tensorflow
   description: Searching for Tensorflow
   version: 1.0.0
 x-collection-name: Reddit  
