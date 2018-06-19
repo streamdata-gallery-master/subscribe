@@ -16,7 +16,7 @@ consumes:
 paths:
   /answers:
     get:
-      summary: Get Answers
+      summary: Get Answers for Kafka
       description: Returns answers for Stack Overflow
       operationId: subscribeAnswers
       parameters:

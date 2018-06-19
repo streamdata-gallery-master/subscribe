@@ -16,7 +16,7 @@ consumes:
 paths:
   /questions:
     get:
-      summary: Get Questions
+      summary: Get Questions for Kafka
       description: Subscribe to questions from Stack Overflow.
       operationId: getQuestions
       parameters:
