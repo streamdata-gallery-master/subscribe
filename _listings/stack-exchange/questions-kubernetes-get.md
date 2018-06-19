@@ -1,8 +1,8 @@
 ---
 swagger: "2.0"
 info:
-  title: Stack Exchange Questions
-  description: Subscribe to Stack Overflow questions.
+  title: Questions - Kubernetes
+  description: Subscribe to Stack Overflow questions for Kubernetes.
   version: "2.0"
 host: api.stackexchange.com
 x-collection-name: Stack Exchange
@@ -16,7 +16,7 @@ consumes:
 paths:
   /questions:
     get:
-      summary: Get Questions
+      summary: Get Questions for Kubernetes
       description: Subscribe to questions from Stack Overflow.
       operationId: getQuestions
       parameters:
@@ -33,7 +33,7 @@ paths:
       - in: query
         name: tagged
         description: The tag to return.
-        default: Kafka
+        default: Kubernetes
       tags:
       - Questions
 ---
