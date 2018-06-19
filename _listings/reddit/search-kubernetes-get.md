@@ -24,7 +24,7 @@ paths:
         name: q
         description: The query.
         type: string
-        default: Kafka
+        default: Kubernetes
       responses:
         200:
           description: OK
