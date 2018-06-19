@@ -42,24 +42,19 @@
            {% endfor %}
          {% endfor %}
 
-         {% assign change_percentage = item.x-streamrank.change_percentage | plus: 0 %}
+         <tr>
+            <td width="10%">
+              <img src="{{ api_image }}" class="taggedLinkCard__image" alt="">
+            </td>
+            <td width="30%">
+              {{ api_name }}
+            </td>
+            <td width="40%">
+              {{ api_path_summary }}
+            </td>
+            <td width="10%"><a href="http://streamdata.subscribe.engine.laneworks.net/generate/stream/?openapi_url=http://{{ site.url }}/{{ tag_slug }}/{{ api_slug }}/{{ api_path_slug }}/">Subscribe</a></td>
+         </tr>
 
-         {% if verb == 'get' %}
-          {% if change_percentage > 5 %}
-           <tr>
-              <td width="10%">
-                <img src="{{ api_image }}" class="taggedLinkCard__image" alt="">
-              </td>
-              <td width="30%">
-                {{ api_name }}
-              </td>
-              <td width="40%">
-                {{ api_path_summary }}
-              </td>
-              <td width="10%"><a href="http://streamdata.subscribe.engine.laneworks.net/generate/stream/?openapi_url=http://{{ site.url }}/{{ tag_slug }}/{{ api_slug }}/{{ api_path_slug }}/">Subscribe</a></td>
-           </tr>
-         {% endif %}
-       {% endif %}
       {% endif %}
     {% endif %}
   {% endfor %}
