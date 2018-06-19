@@ -5,6 +5,7 @@ info:
   description: Subscribe to Stack Overflow questions.
   version: "2.0"
 host: api.stackexchange.com
+x-collection-name: Stack Exchange
 basePath: /2.2
 schemes:
 - http
