@@ -10,6 +10,7 @@ info:
   termsOfService: https://help.github.com/articles/github-terms-of-service/#b-api-terms
   version: 1.0.0
 host: api.github.com
+x-collection-name: Github
 basePath: /
 schemes:
 - http
