@@ -4,6 +4,7 @@ info:
   title: Reddit Search for React
   description: Searching for React
   version: 1.0.0
+x-collection-name: Reddit  
 host: www.reddit.com
 basePath: /
 schemes:

@@ -4,6 +4,7 @@ info:
   title: Reddit Search for Istio
   description: Searching for Istio
   version: 1.0.0
+x-collection-name: Reddit
 host: www.reddit.com
 basePath: /
 schemes:
