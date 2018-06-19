@@ -1,7 +1,7 @@
 ---
 swagger: "2.0"
 info:
-  title: Reddit - React
+  title: Search - React
   description: Searching for React
   version: 1.0.0
 x-collection-name: Reddit  

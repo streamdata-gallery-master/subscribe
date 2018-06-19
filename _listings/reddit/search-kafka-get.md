@@ -1,7 +1,7 @@
 ---
 swagger: "2.0"
 info:
-  title: Reddit - Kafka
+  title: Search - Kafka
   description: Searching for Kafka
   version: 1.0.0
 x-collection-name: Reddit  
