@@ -33,7 +33,7 @@ paths:
       - in: query
         name: tagged
         description: The tag to return.
-        default: Kafka
+        default: Apache Kafka
       tags:
       - Questions
 ---
