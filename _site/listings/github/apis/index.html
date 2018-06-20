@@ -74,17 +74,13 @@
       <link rel="alternate" type="application/json+oembed" href="https://streamdata.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fstreamdata.io%2Fdevelopers%2Fapi-gallery%2F">
       <link rel="alternate" type="text/xml+oembed" href="https://streamdata.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fstreamdata.io%2Fdevelopers%2Fapi-gallery%2F&amp;format=xml">
 
-      <style type="text/css">
-  			.wordcloud {
-  				border: 0px solid #FFF;
-  				height: 8in;
-  				margin: 5px auto;
-  				padding: 0;
-  				page-break-after: always;
-  				page-break-inside: avoid;
-  				width: 90%;
-  			}
-  		</style>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+      <!-- include streamdataio library -->
+      <script src="https://cdn.rawgit.com/streamdataio/streamdataio-js-sdk/master/dist/bundles/streamdataio.min.js"></script>
+
+      <!-- use json-patch-duplex library for applying patches -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fast-json-patch/0.5.1/json-patch-duplex.min.js"></script>
 
    </head>
 
@@ -569,5 +565,8 @@
   <script defer="" src="http://template.api.gallery.streamdata.io/assets/svgxuse.js"></script>
   <script src="http://template.api.gallery.streamdata.io/assets/vendor.js"></script>
   <script src="http://template.api.gallery.streamdata.io/assets/bundle.js"></script>
+
+  
+
 </body>
 </html>
