@@ -1,3 +1,132 @@
+<script type="text/javascript">
+
+	var eventSource = null;
+	var responses = [];
+
+	function process(id)
+		{
+
+		data = responses[id];
+		//console.log(data);
+
+		document.getElementById("wrapper-"+id).innerHTML = '';
+
+		var table = document.createElement("table");
+		table.setAttribute("id",id);
+		console.log(id);
+		if(id=='reddit')
+			{
+
+			results = data.data.children;
+			results.forEach(function(entry) {
+
+				var tr = document.createElement("tr");
+				var td = document.createElement("td");
+				var text = document.createTextNode(entry.data.title + ' (score: ' + entry.data.score + ')');
+				a = document.createElement("a");
+				a.setAttribute("href",entry.data.url);
+				a.setAttribute("style",'color:#000; text-decoration: none;');
+				a.appendChild(text);
+				td.appendChild(a);
+				tr.appendChild(td);
+				table.appendChild(tr);
+
+				});
+			}
+
+		if(id=='stack-exchange')
+			{
+
+			results = data.items;
+			results.forEach(function(entry) {
+
+				var tr = document.createElement("tr");
+				var td = document.createElement("td");
+				var text = document.createTextNode(entry.title + ' (views: ' + entry.view_count + ')');
+				a = document.createElement("a");
+				a.setAttribute("href",entry.url);
+				a.setAttribute("style",'color:#000; text-decoration: none;');
+				a.appendChild(text);
+				td.appendChild(a);
+				tr.appendChild(td);
+				table.appendChild(tr);
+
+				});
+			}
+
+		document.getElementById("wrapper-"+id).appendChild(table);
+
+		}
+
+
+  function connect(url,token,id) {
+
+  	console.log("url: " + url);
+  	console.log("token: " + token);
+
+    // create the StreamdataEventSource Object
+    eventSource = streamdataio.createEventSource(url, token);
+
+    eventSource
+     .onOpen(function() {
+       console.log("streamdata Event Source connected.")
+     })
+     .onData(function(data) {
+
+		var div = document.createElement("div");
+		div.setAttribute("id",'wrapper-'+id);
+		document.getElementById("updates").appendChild(div);
+
+		responses[id] = [];
+		responses[id] = data;
+
+		process(id);
+
+     })
+     .onPatch(function(patch) {
+     	console.log(patch);
+       jsonpatch.apply(responses[id], patch);
+       process(id);
+
+     })
+     .onError(function(error) {
+       // displays the error message
+       console.log(error.getMessage());
+     });
+
+    // open the data stream to the REST service through streamdata.io proxy
+    eventSource.open();
+
+  };
+
+function build(openapi,id)
+	{
+
+	// base
+	base = 'http://streamdata.subscribe.engine.laneworks.net/generate/stream/';
+
+	//openapi
+	//openapi = 'http://subscribe.streamdata.gallery/subscribe/reddit/search-istio-get/';
+
+	pull = base + '?openapi_url=' + openapi + '&id=' + id;
+
+	var response = $.ajax({
+	       url: pull,
+	       method: "get",
+	       success:function(response){
+
+	            console.log(response);
+
+	            connect(response.api_url,response.token,response.id);
+
+	        },
+	        error: function(XMLHttpRequest, textStatus, errorThrown) {
+	            console.log("Status: " + textStatus); alert("Error: " + errorThrown);
+	        }
+	    });
+	}
+</script>
+
 <center>
 <table width="50%" style="background-color:#FFF; padding: 25px; border: 1px solid #000;">
   {% assign last_name = '' %}
@@ -58,7 +187,10 @@
             <td width="40%">
               {{ api_path_summary }}
             </td>
-            <td width="10%"><a href="http://streamdata.subscribe.engine.laneworks.net/generate/stream/?openapi_url=http://{{ site.url }}/{{ tag_slug }}/{{ api_slug }}/{{ api_path_slug }}/" target="_blank">Subscribe</a></td>
+            <td width="10%"><a href="build('http://{{ site.url }}/{{ tag_slug }}/{{ api_slug }}/{{ api_path_slug }}/','{{ api_slug }}');">Subscribe</a></td>
+         </tr>
+         <tr>
+           <td id="{{ api_slug }}" colspan="4"></td>
          </tr>
 
          {% assign last_name = api_name %}
