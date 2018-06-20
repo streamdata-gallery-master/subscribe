@@ -322,7 +322,8 @@ function build(openapi,id)
 
 	        },
 	        error: function(XMLHttpRequest, textStatus, errorThrown) {
-	            console.log("Status: " + textStatus); alert("Error: " + errorThrown);
+	            console.log("Status: " + textStatus);
+              console.log("Error: " + errorThrown);
 	        }
 	    });
 	}

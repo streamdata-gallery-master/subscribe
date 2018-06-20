@@ -114,14 +114,13 @@ function build(openapi,id)
 	       url: pull,
 	       method: "get",
 	       success:function(response){
-
 	            console.log(response);
-
 	            connect(response.api_url,response.token,response.id);
 
 	        },
 	        error: function(XMLHttpRequest, textStatus, errorThrown) {
-	            console.log("Status: " + textStatus); alert("Error: " + errorThrown);
+	            console.log("Status: " + textStatus);
+              console.log("Error: " + errorThrown);
 	        }
 	    });
 	}
