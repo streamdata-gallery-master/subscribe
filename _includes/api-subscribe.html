@@ -169,6 +169,7 @@ function build(openapi,id)
 <table width="50%" style="background-color:#FFF; padding: 25px; border: 1px solid #000;">
   {% assign last_name = '' %}
   {% for item in listing_object %}
+		item: {{ item }}<br /><hr /><br />
     {% if item.swagger %}
       {% if item.swagger == "2.0" %}
 
