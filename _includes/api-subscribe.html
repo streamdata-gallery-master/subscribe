@@ -19,6 +19,8 @@
 			{
 
 			results = data.data.children;
+			total_count = results.length;
+			item_count = 0;			
 			results.forEach(function(entry) {
 
 				var tr = document.createElement("tr");
@@ -31,14 +33,23 @@
 				td.appendChild(a);
 				tr.appendChild(td);
 				table.appendChild(tr);
+				item_count++;
+
+				if(item_count == total_count)
+					{
+					document.getElementById("wrapper-"+id).appendChild(table);
+					}
 
 				});
+
 			}
 
 		if(id=='stack-exchange')
 			{
 
 			results = data.items;
+			total_count = results.length;
+			item_count = 0;
 			results.forEach(function(entry) {
 
 				var tr = document.createElement("tr");
@@ -51,11 +62,16 @@
 				td.appendChild(a);
 				tr.appendChild(td);
 				table.appendChild(tr);
+				item_count++;
+
+				if(item_count == total_count)
+					{
+					document.getElementById("wrapper-"+id).appendChild(table);
+					}
 
 				});
-			}
 
-		document.getElementById("wrapper-"+id).appendChild(table);
+			}
 
 		}
 
