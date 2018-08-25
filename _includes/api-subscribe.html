@@ -52,6 +52,17 @@
 			results = data.items;
 			total_count = results.length;
 			item_count = 0;
+
+			// append a title	
+			var tr = document.createElement("tr");
+			var td = document.createElement("td");
+			var strong = document.createElement("strong");
+			var text = document.createTextNode('Stack Exchange');
+			strong.appendChild(text);
+			td.appendChild(strong);
+			tr.appendChild(td);
+			table.appendChild(tr);
+
 			results.forEach(function(entry) {
 
 				var tr = document.createElement("tr");
