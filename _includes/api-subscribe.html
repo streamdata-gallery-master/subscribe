@@ -71,9 +71,9 @@
 
 				var tr = document.createElement("tr");
 				var td = document.createElement("td");
-				var text = document.createTextNode(entry.title + ' (views: ' + entry.view_count + ')');
+				var text = document.createTextNode(entry.data.title + ' (views: ' + entry.data.view_count + ')');
 				a = document.createElement("a");
-				a.setAttribute("href",entry.url);
+				a.setAttribute("href",entry.data.url);
 				a.setAttribute("style",'color:#000; text-decoration: none;');
 				a.appendChild(text);
 				td.appendChild(a);
