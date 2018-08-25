@@ -78,8 +78,8 @@
 
   function connect(url,token,id) {
 
-  	console.log("url: " + url);
-  	console.log("token: " + token);
+  	//console.log("url: " + url);
+  	//console.log("token: " + token);
 
     // create the StreamdataEventSource Object
     eventSource = streamdataio.createEventSource(url, token);
@@ -101,7 +101,7 @@
 
      })
      .onPatch(function(patch) {
-     	 ..console.log(patch);
+     	 //console.log(patch);
        jsonpatch.apply(responses[id], patch);
        process(id);
 
