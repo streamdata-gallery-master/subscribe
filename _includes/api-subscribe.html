@@ -7,7 +7,7 @@
 		{
 
 		data = responses[id];
-		//console.log(data);
+		console.log(data);
 
 		document.getElementById("wrapper-"+id).innerHTML = '';
 
@@ -65,10 +65,11 @@
 
 			results = data.items;
 			total_count = results.length;
+			console.log(total_count);
 			item_count = 0;
 			results.forEach(function(entry) {
 
-			console.log(entry);
+				console.log(entry);
 
 				var tr = document.createElement("tr");
 				var td = document.createElement("td");
