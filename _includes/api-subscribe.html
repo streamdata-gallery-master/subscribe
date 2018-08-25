@@ -7,14 +7,14 @@
 		{
 
 		data = responses[id];
-	  console.log("id = "+ id);
 
 		document.getElementById("wrapper-"+id).innerHTML = '';
 
 		var table = document.createElement("table");
 		table.setAttribute("id",id);
-		console.log(id);
-		console.log("2)" + data);
+
+		console.log("id = "+ id);
+
 		if(id=='reddit')
 			{
 
@@ -103,8 +103,8 @@
      .onPatch(function(patch) {
      	 //console.log(patch);
        jsonpatch.apply(responses[id], patch);
-       process(id);
-			 //document.getElementById("wrapper-"+id).innerHTML = responses[id];
+
+			 process(id);
 
      })
      .onError(function(error) {
