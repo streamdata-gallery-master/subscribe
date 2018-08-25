@@ -20,7 +20,7 @@
 
 			results = data.data.children;
 			total_count = results.length;
-			item_count = 0;			
+			item_count = 0;
 			results.forEach(function(entry) {
 
 				var tr = document.createElement("tr");
@@ -90,9 +90,9 @@
      })
      .onData(function(data) {
 
-		var div = document.createElement("div");
-		div.setAttribute("id",'wrapper-'+id);
-		document.getElementById("updates").appendChild(div);
+			 var div = document.createElement("div");
+			 div.setAttribute("id",'wrapper-'+id);
+			 document.getElementById("updates").appendChild(div);
 
 		responses[id] = [];
 		responses[id] = data;
@@ -216,3 +216,5 @@ function build(openapi,id)
   {% endfor %}
 </table>
 </center>
+
+<div id="updates"></div>
