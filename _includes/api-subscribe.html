@@ -7,16 +7,14 @@
 		{
 
 		data = responses[id];
+		//console.log(data);
 
 		document.getElementById("wrapper-"+id).innerHTML = '';
 
 		var table = document.createElement("table");
 		table.setAttribute("id",id);
-		table.setAttribute("width","100%");
-		table.setAttribute("border","1");
-
-		console.log("id = "+ id);
-
+		console.log(id);
+		console.log("2)" + data);
 		if(id=='reddit')
 			{
 
@@ -52,17 +50,6 @@
 			results = data.items;
 			total_count = results.length;
 			item_count = 0;
-
-			// append a title	
-			var tr = document.createElement("tr");
-			var td = document.createElement("td");
-			var strong = document.createElement("strong");
-			var text = document.createTextNode('Stack Exchange');
-			strong.appendChild(text);
-			td.appendChild(strong);
-			tr.appendChild(td);
-			table.appendChild(tr);
-
 			results.forEach(function(entry) {
 
 				var tr = document.createElement("tr");
@@ -99,7 +86,7 @@
 
     eventSource
      .onOpen(function() {
-       console.log("streamdata Event Source connected.")
+       console.log("Streamdata Event Source connected.")
      })
      .onData(function(data) {
 
@@ -114,10 +101,9 @@
 
      })
      .onPatch(function(patch) {
-     	 //console.log(patch);
+     	 ..console.log(patch);
        jsonpatch.apply(responses[id], patch);
-
-			 process(id);
+       process(id);
 
      })
      .onError(function(error) {
