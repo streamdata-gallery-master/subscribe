@@ -14,8 +14,8 @@
 		var table = document.createElement("table");
 
 		table.setAttribute("id",id);
-		table.setAttribute("width","75%");
-		table.setAttribute("border","1");
+		table.setAttribute("width","60%");
+		table.setAttribute("border","0");
 
 		// append a title
 		var tr = document.createElement("tr");
@@ -35,7 +35,8 @@
 			item_count = 0;
 			results.forEach(function(entry) {
 
-				console.log(entry);
+				//console.log(entry);
+
 				var tr = document.createElement("tr");
 				var td = document.createElement("td");
 				var text = document.createTextNode(entry.data.title + ' (score: ' + entry.data.score + ')');
@@ -67,7 +68,7 @@
 			item_count = 0;
 			results.forEach(function(entry) {
 
-				console.log(entry);
+				//console.log(entry);
 
 				var tr = document.createElement("tr");
 				var td = document.createElement("td");
