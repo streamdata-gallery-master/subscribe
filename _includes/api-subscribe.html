@@ -12,9 +12,21 @@
 		document.getElementById("wrapper-"+id).innerHTML = '';
 
 		var table = document.createElement("table");
+
 		table.setAttribute("id",id);
-		console.log(id);
-		console.log("2)" + data);
+		table.setAttribute("width","75%");
+		table.setAttribute("border","1");
+
+		// append a title
+		var tr = document.createElement("tr");
+		var td = document.createElement("td");
+		var strong = document.createElement("strong");
+		var text = document.createTextNode('Stack Exchange');
+		strong.appendChild(text);
+		td.appendChild(strong);
+		tr.appendChild(td);
+		table.appendChild(tr);
+
 		if(id=='reddit')
 			{
 
@@ -37,7 +49,9 @@
 
 				if(item_count == total_count)
 					{
-					document.getElementById("wrapper-"+id).appendChild(table);
+						var center = document.createElement("center");
+						center.appendChild(table);
+						document.getElementById("wrapper-"+id).appendChild(center);
 					}
 
 				});
@@ -62,11 +76,14 @@
 				td.appendChild(a);
 				tr.appendChild(td);
 				table.appendChild(tr);
+
 				item_count++;
 
 				if(item_count == total_count)
 					{
-					document.getElementById("wrapper-"+id).appendChild(table);
+					var center = document.createElement("center");
+					center.appendChild(table);
+					document.getElementById("wrapper-"+id).appendChild(center);
 					}
 
 				});
