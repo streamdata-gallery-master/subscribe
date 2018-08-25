@@ -7,7 +7,7 @@
 		{
 
 		data = responses[id];
-		//console.log(data);
+	  console.log("id = "+ id);
 
 		document.getElementById("wrapper-"+id).innerHTML = '';
 
@@ -97,14 +97,14 @@
 			 responses[id] = [];
 			 responses[id] = data;
 
-			process(id);
+			 process(id);
 
      })
      .onPatch(function(patch) {
      	 //console.log(patch);
        jsonpatch.apply(responses[id], patch);
        process(id);
-			 document.getElementById("wrapper-"+id).innerHTML = responses[id];
+			 //document.getElementById("wrapper-"+id).innerHTML = responses[id];
 
      })
      .onError(function(error) {
