@@ -3,7 +3,7 @@
 	var eventSource = null;
 	var responses = [];
 
-	function process(id)
+	function process(id,summary)
 		{
 
 		data = responses[id];
@@ -22,7 +22,7 @@
 		var tr = document.createElement("tr");
 		var td = document.createElement("td");
 		var strong = document.createElement("strong");
-		var text = document.createTextNode('Reddit');
+		var text = document.createTextNode('Reddit - ' + summary);
 		strong.appendChild(text);
 		td.appendChild(strong);
 		tr.appendChild(td);
@@ -99,7 +99,7 @@
 		}
 
 
-  function connect(url,token,id) {
+  function connect(url,token,id,summary) {
 
   	console.log("url: " + url);
   	console.log("token: " + token);
@@ -120,13 +120,13 @@
 			 responses[id] = [];
 			 responses[id] = data;
 
-			 process(id);
+			 process(id,summary);
 
      })
      .onPatch(function(patch) {
      	 //console.log(patch);
        jsonpatch.apply(responses[id], patch);
-       process(id);
+       process(id,summary);
 
      })
      .onError(function(error) {
@@ -139,7 +139,7 @@
 
   };
 
-function build(openapi,id)
+function build(openapi,id,summary)
 	{
 
 	// base
@@ -155,7 +155,7 @@ function build(openapi,id)
 	       method: "get",
 	       success:function(response){
 	            console.log(response);
-	            connect(response.api_url,response.token,response.id);
+	            connect(response.api_url,response.token,response.id,summary);
 
 	        },
 	        error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -226,7 +226,7 @@ function build(openapi,id)
             <td width="40%">
               {{ api_path_summary }}
             </td>
-            <td width="10%"><a href="#" onclick="build('http://{{ site.url }}/{{ tag_slug }}/{{ api_slug }}/{{ api_path_slug }}/','{{ api_slug }}'); return false;">Subscribe</a></td>
+            <td width="10%"><a href="#" onclick="build('http://{{ site.url }}/{{ tag_slug }}/{{ api_slug }}/{{ api_path_slug }}/','{{ api_slug }}','{{ api_path_summary }}'); return false;">Subscribe</a></td>
          </tr>
          <tr>
            <td id="{{ api_slug }}" colspan="4"></td>
