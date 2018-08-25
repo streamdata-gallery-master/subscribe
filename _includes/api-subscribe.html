@@ -21,10 +21,12 @@
 		// append a title
 		var tr = document.createElement("tr");
 		var td = document.createElement("td");
+		var hr = document.createElement("hr");
 		var strong = document.createElement("strong");
 		var text = document.createTextNode(name + ' - ' + summary);
 		strong.appendChild(text);
 		td.appendChild(strong);
+		td.appendChild(hr);
 		tr.appendChild(td);
 		table.appendChild(tr);
 
